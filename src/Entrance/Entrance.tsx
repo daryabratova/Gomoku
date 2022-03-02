@@ -1,7 +1,7 @@
 import React from "react";
 import * as Styles from "./Entrance.styles";
 
-const Entrance: React.FC = () => {
+const Entrance: React.FC<{ onStart: () => void }> = ({ onStart }) => {
   return (
     <Styles.Layout>
       <Styles.Title>Gomoku</Styles.Title>
@@ -11,7 +11,7 @@ const Entrance: React.FC = () => {
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat.
       </Styles.Rules>
-      <Styles.Button>Start</Styles.Button>
+      <Styles.Button onClick={onStart}>Start</Styles.Button>
     </Styles.Layout>
   );
 };
