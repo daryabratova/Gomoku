@@ -89,8 +89,8 @@ export const BottomLine = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 188px;
-  height: 64px;
+  width: 184px;
+  height: 60px;
   padding-left: 76px;
   background-color: #5e5656;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -101,7 +101,14 @@ export const Button = styled.button`
   letter-spacing: 0.03em;
   text-align: left;
   color: #ebdacb;
-  border: none;
+  border: 2px solid #5e5656;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border: 2px solid #ebdacb;
+  }
 `;
 
 export const UndoButton = styled(Button)`

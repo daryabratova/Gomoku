@@ -51,8 +51,8 @@ export const Rules = styled.p`
 `;
 
 export const Button = styled.button`
-  width: 118px;
-  height: 40px;
+  width: 114px;
+  height: 36px;
   margin-top: 30px;
   background-color: #ebdacb;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -63,19 +63,27 @@ export const Button = styled.button`
   line-height: 19px;
   letter-spacing: 0.03em;
   color: #5e5656;
+  border: 2px solid #ebdacb;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border: 2px solid #5e5656;
+  }
 
   @media screen and (min-width: 700px) {
     margin-top: 50px;
-    width: 180px;
-    height: 62px;
+    width: 176px;
+    height: 58px;
     font-size: 24px;
     line-height: 28px;
   }
 
   @media screen and (min-width: 1200px) {
     margin-top: 35px;
-    width: 188px;
-    height: 64px;
+    width: 184px;
+    height: 60px;
     font-size: 20px;
     line-height: 23px;
   }

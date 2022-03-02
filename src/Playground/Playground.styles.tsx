@@ -109,8 +109,8 @@ export const BottomLine = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 118px;
-  height: 40px;
+  width: 114px;
+  height: 36px;
   padding-left: 22px;
   background-color: #5e5656;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -120,11 +120,18 @@ export const Button = styled.button`
   line-height: 19px;
   letter-spacing: 0.03em;
   color: #ebdacb;
-  border: none;
+  border: 2px solid #5e5656;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border: 2px solid #ebdacb;
+  }
 
   @media screen and (min-width: 700px) {
-    width: 180px;
-    height: 62px;
+    width: 176px;
+    height: 58px;
     padding-left: 66px;
     text-align: left;
     font-size: 24px;
