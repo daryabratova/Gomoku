@@ -1,7 +1,7 @@
 import React from "react";
-import * as Styles from "./Entrance.styles";
+import * as Styles from "./Intro.styles";
 
-const Entrance: React.FC<{ onStart: () => void }> = ({ onStart }) => {
+const Intro: React.FC<{ onStart: () => void }> = ({ onStart }) => {
   return (
     <Styles.Layout>
       <Styles.Title>Gomoku</Styles.Title>
@@ -18,4 +18,4 @@ const Entrance: React.FC<{ onStart: () => void }> = ({ onStart }) => {
   );
 };
 
-export default Entrance;
+export default Intro;

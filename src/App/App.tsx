@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Entrance from "../Entrance";
+import Intro from "../Intro";
 import Playground from "../Playground";
 import PlaygroundDesktop from "../PlaygroundDesktop";
 import * as Styles from "./App.styles";
@@ -20,7 +20,7 @@ const App: React.FC = () => {
         </>
       );
     }
-    return <Entrance onStart={showPlaygroundPage} />;
+    return <Intro onStart={showPlaygroundPage} />;
   };
 
   return (
