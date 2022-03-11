@@ -28,9 +28,21 @@ export const Title = styled.h1`
   }
 `;
 
+export const Content = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (min-width: 700px) {
+    display: none;
+  }
+`;
+
 export const Rules = styled.p`
   padding: 0 30px;
-  margin-top: 100px;
   font-size: 20px;
   line-height: 23px;
   text-align: center;
