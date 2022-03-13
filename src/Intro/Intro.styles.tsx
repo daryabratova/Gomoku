@@ -35,10 +35,6 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  @media screen and (min-width: 700px) {
-    display: none;
-  }
 `;
 
 export const Rules = styled.p`
