@@ -1,7 +1,7 @@
 import React from "react";
-import * as Styles from "./PlaygroundDesktop.styles";
+import * as Styles from "./GameDesktop.styles";
 
-const PlaygroundDesktop: React.FC = () => {
+const GameDesktop: React.FC = () => {
   return (
     <Styles.Layout>
       <Styles.Content>
@@ -22,4 +22,4 @@ const PlaygroundDesktop: React.FC = () => {
   );
 };
 
-export default PlaygroundDesktop;
+export default GameDesktop;

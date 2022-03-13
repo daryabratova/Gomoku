@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Intro from "../Intro";
-import Playground from "../Playground";
-import PlaygroundDesktop from "../PlaygroundDesktop";
+import Game from "../Game";
+import GameDesktop from "../GameDesktop";
 import * as Styles from "./App.styles";
 
 const App: React.FC = () => {
@@ -15,8 +15,8 @@ const App: React.FC = () => {
     if (playgroundIsOpen) {
       return (
         <>
-          <Playground />
-          <PlaygroundDesktop />
+          <Game />
+          <GameDesktop />
         </>
       );
     }

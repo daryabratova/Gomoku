@@ -1,7 +1,7 @@
 import React from "react";
-import * as Styles from "./Playground.styles";
+import * as Styles from "./Game.styles";
 
-const Playground: React.FC = () => {
+const Game: React.FC = () => {
   return (
     <Styles.Layout>
       <Styles.Title>Gomoku</Styles.Title>
@@ -20,4 +20,4 @@ const Playground: React.FC = () => {
   );
 };
 
-export default Playground;
+export default Game;
