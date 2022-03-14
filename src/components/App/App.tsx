@@ -5,14 +5,14 @@ import GameDesktop from "../GameDesktop";
 import * as Styles from "./App.styles";
 
 const App: React.FC = () => {
-  const [playgroundIsOpen, setPlaygroundIsOpen] = useState(false);
+  const [gameIsOpen, setGameIsOpen] = useState(false);
 
-  const showPlaygroundPage = () => {
-    setPlaygroundIsOpen(true);
+  const showGamePage = () => {
+    setGameIsOpen(true);
   };
 
   const renderPage = () => {
-    if (playgroundIsOpen) {
+    if (gameIsOpen) {
       return (
         <>
           <Game />
@@ -20,7 +20,7 @@ const App: React.FC = () => {
         </>
       );
     }
-    return <Intro onStart={showPlaygroundPage} />;
+    return <Intro onStart={showGamePage} />;
   };
 
   return (

@@ -1,11 +1,12 @@
 import React from "react";
+import Board from "../Board";
 import * as Styles from "./GameDesktop.styles";
 
 const GameDesktop: React.FC = () => {
   return (
     <Styles.Layout>
       <Styles.Content>
-        <Styles.GameTable />
+        <Board />
         <Styles.RightSection>
           <Styles.Title>Gomoku</Styles.Title>
           <Styles.Info>

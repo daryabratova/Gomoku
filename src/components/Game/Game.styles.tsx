@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-import Token from "../assets/token.svg";
-import Table from "../assets/table.svg";
-import UndoIcon from "../assets/undo.svg";
-import RestartIcon from "../assets/restart.svg";
+import BlackStone from "../../assets/black-stone.svg";
+import UndoIcon from "../../assets/undo.svg";
+import RestartIcon from "../../assets/restart.svg";
 
 export const Layout = styled.div`
   width: 100%;
@@ -46,21 +45,8 @@ export const Content = styled.div`
   height: 390px;
 
   @media screen and (min-width: 700px) {
-    width: 466px;
+    width: 447px;
     height: 580px;
-  }
-`;
-
-export const GameTable = styled.div`
-  width: 300px;
-  height: 300px;
-  background-image: url(${Table});
-  background-size: 300px;
-
-  @media screen and (min-width: 700px) {
-    width: 466px;
-    height: 466px;
-    background-size: 466px;
   }
 `;
 
@@ -89,7 +75,7 @@ export const Turn = styled.span`
   font-size: 16px;
   line-height: 19px;
   letter-spacing: 0.03em;
-  background-image: url(${Token});
+  background-image: url(${BlackStone});
   background-repeat: no-repeat;
   color: #4b4444;
 
