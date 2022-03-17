@@ -1,8 +1,8 @@
 import React from "react";
-import Board from "../Board";
-import * as Styles from "./GameDesktop.styles";
+import Board from "../../Board";
+import * as Styles from "./Desktop.styles";
 
-const GameDesktop: React.FC = () => {
+const Desktop: React.FC = () => {
   return (
     <Styles.Layout>
       <Styles.Content>
@@ -23,4 +23,4 @@ const GameDesktop: React.FC = () => {
   );
 };
 
-export default GameDesktop;
+export default Desktop;

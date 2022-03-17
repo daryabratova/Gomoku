@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import BlackStone from "../../assets/black-stone.svg";
-import UndoIcon from "../../assets/undo.svg";
-import RestartIcon from "../../assets/restart.svg";
+import BlackStone from "../../../assets/black-stone.svg";
+import UndoIcon from "../../../assets/undo.svg";
+import RestartIcon from "../../../assets/restart.svg";
 
 export const Layout = styled.div`
   width: 100%;
