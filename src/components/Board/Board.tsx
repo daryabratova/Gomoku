@@ -1,15 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import GameContext from "../../contexts/game";
 import * as Styles from "./Board.styles";
 
 const Board: React.FC = () => {
-  const [cells, setCells] = useState<(null | "black" | "white")[]>(
-    [...Array(225)].map(() => {
-      return null;
-    })
-  );
-
-  const { turn, setTurn } = useContext(GameContext);
+  const { cells, setCells, turn, setTurn } = useContext(GameContext);
 
   return (
     <Styles.BoardLayout>
