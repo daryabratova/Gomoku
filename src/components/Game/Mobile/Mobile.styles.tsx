@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
+import { Turn as TurnType } from "../../../types/game";
+
 import BlackStone from "../../../assets/black-stone.svg";
+import WhiteStone from "../../../assets/white-stone.svg";
 import UndoIcon from "../../../assets/undo.svg";
 import RestartIcon from "../../../assets/restart.svg";
 
@@ -68,22 +71,24 @@ export const Timer = styled.span`
   }
 `;
 
-export const Turn = styled.span`
+export const Turn = styled.span<{ turn: TurnType }>`
   display: inline-block;
   padding-left: 20px;
   font-weight: 300;
   font-size: 16px;
   line-height: 19px;
   letter-spacing: 0.03em;
-  background-image: url(${BlackStone});
+  background-image: ${(props) =>
+    props.turn === "black" ? `url(${BlackStone})` : `url(${WhiteStone})`};
   background-repeat: no-repeat;
+  background-size: 18px;
   color: #4b4444;
 
   @media screen and (min-width: 700px) {
-    padding-left: 25px;
-    font-size: 30px;
-    line-height: 22px;
-    background-size: 22px;
+    padding-left: 35px;
+    font-size: 28px;
+    line-height: 28px;
+    background-size: 28px;
   }
 `;
 

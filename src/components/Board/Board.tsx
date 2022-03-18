@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import GameContext from "../../contexts/game";
 import * as Styles from "./Board.styles";
 
 const Board: React.FC = () => {
@@ -8,7 +9,7 @@ const Board: React.FC = () => {
     })
   );
 
-  const [turn, setTurn] = useState<"black" | "white">("black");
+  const { turn, setTurn } = useContext(GameContext);
 
   return (
     <Styles.BoardLayout>

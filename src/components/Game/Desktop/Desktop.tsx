@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Board from "../../Board";
+import GameContext from "../../../contexts/game";
 import * as Styles from "./Desktop.styles";
 
 const Desktop: React.FC = () => {
+  const { turn } = useContext(GameContext);
+
   return (
     <Styles.Layout>
       <Styles.Content>
@@ -10,7 +13,7 @@ const Desktop: React.FC = () => {
         <Styles.RightSection>
           <Styles.Title>Gomoku</Styles.Title>
           <Styles.Info>
-            <Styles.Turn>Your turn</Styles.Turn>
+            <Styles.Turn turn={turn}>Your turn</Styles.Turn>
             <Styles.Timer>00:02:45</Styles.Timer>
           </Styles.Info>
           <Styles.BottomLine>
