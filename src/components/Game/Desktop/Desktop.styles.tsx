@@ -50,7 +50,7 @@ export const Title = styled.h1`
 export const Info = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   height: 66px;
   border-top: 1px solid #303040;
@@ -59,7 +59,7 @@ export const Info = styled.div`
 
 export const Turn = styled.span<{ turn: TurnType }>`
   display: inline-block;
-  padding-left: 40px;
+  padding: 0 40px;
   font-weight: 300;
   font-size: 20px;
   line-height: 28px;
@@ -69,13 +69,6 @@ export const Turn = styled.span<{ turn: TurnType }>`
   background-repeat: no-repeat;
   background-size: 28px;
   color: #4b4444;
-`;
-
-export const Timer = styled.span`
-  font-size: 36px;
-  line-height: 42px;
-  letter-spacing: 0.03em;
-  color: #5e5656;
 `;
 
 export const BottomLine = styled.div`

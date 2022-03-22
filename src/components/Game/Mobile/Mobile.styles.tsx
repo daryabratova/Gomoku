@@ -45,7 +45,7 @@ export const Content = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 300px;
-  height: 390px;
+  height: 410px;
 
   @media screen and (min-width: 700px) {
     width: 447px;
@@ -56,19 +56,11 @@ export const Content = styled.div`
 export const TopLine = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
-`;
-
-export const Timer = styled.span`
-  font-size: 24px;
-  letter-spacing: 0.03em;
-  color: #5e5656;
-
-  @media screen and (min-width: 700px) {
-    font-size: 36px;
-    line-height: 42px;
-  }
+  height: 40px;
+  border-top: 1px solid #303040;
+  border-bottom: 1px solid #303040;
 `;
 
 export const Turn = styled.span<{ turn: TurnType }>`

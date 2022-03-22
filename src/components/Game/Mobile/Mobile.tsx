@@ -11,7 +11,6 @@ const Mobile: React.FC = () => {
       <Styles.Title>Gomoku</Styles.Title>
       <Styles.Content>
         <Styles.TopLine>
-          <Styles.Timer>00:02:45</Styles.Timer>
           <Styles.Turn turn={turn}>Your turn</Styles.Turn>
         </Styles.TopLine>
         <Board />

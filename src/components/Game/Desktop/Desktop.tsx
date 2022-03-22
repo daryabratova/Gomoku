@@ -14,7 +14,6 @@ const Desktop: React.FC = () => {
           <Styles.Title>Gomoku</Styles.Title>
           <Styles.Info>
             <Styles.Turn turn={turn}>Your turn</Styles.Turn>
-            <Styles.Timer>00:02:45</Styles.Timer>
           </Styles.Info>
           <Styles.BottomLine>
             <Styles.UndoButton>Undo</Styles.UndoButton>
