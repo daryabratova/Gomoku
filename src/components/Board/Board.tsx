@@ -2,45 +2,65 @@ import React, { useContext } from "react";
 import GameContext from "../../contexts/game";
 import * as Styles from "./Board.styles";
 
+const range = (n: number) => {
+  // Creates an array with numbers from 0 to n-1
+  return [...Array(n)].map((_, i) => i);
+};
+
 const Board: React.FC = () => {
-  const { cells, setCells, turn, setTurn } = useContext(GameContext);
+  const { moves, setMoves, turn, setTurn } = useContext(GameContext);
 
   return (
     <Styles.BoardLayout>
-      {cells.map((cell, i) => {
-        const handleClick = () => {
-          if (cell !== null) {
-            return;
-          }
+      {range(15).map((y) => {
+        return range(15).map((x) => {
+          // Will be "0-14:0-14"
+          const coordinates = [x, y].join(":");
 
-          const cellsCopy = cells.slice();
-          cellsCopy[i] = turn;
-          setCells(cellsCopy);
+          // udefined | "black" | "white"
+          const move = moves[coordinates];
 
-          if (turn === "black") {
-            setTurn("white");
-          } else {
-            setTurn("black");
-          }
-        };
+          const handleClick = () => {
+            // Exit if move already exists
+            if (move) {
+              return;
+            }
 
-        const getStone = () => {
-          if (!cell) {
-            return null;
-          }
+            setMoves({
+              ...moves,
+              [coordinates]: turn,
+            });
 
-          if (cell === "black") {
-            return <Styles.BlackStone />;
-          }
+            // Switch turn after move
+            if (turn === "black") {
+              setTurn("white");
+            } else {
+              setTurn("black");
+            }
+          };
 
-          return <Styles.WhiteStone />;
-        };
+          const getStone = () => {
+            if (!move) {
+              return null;
+            }
 
-        return (
-          <Styles.StoneWrapper display={cell} onClick={handleClick} key={i}>
-            {getStone()}
-          </Styles.StoneWrapper>
-        );
+            if (move === "black") {
+              return <Styles.BlackStone />;
+            }
+
+            return <Styles.WhiteStone />;
+          };
+
+          return (
+            <Styles.StoneWrapper
+              display={move}
+              onClick={handleClick}
+              key={coordinates}
+            >
+              {getStone()}
+            </Styles.StoneWrapper>
+          );
+        });
       })}
     </Styles.BoardLayout>
   );

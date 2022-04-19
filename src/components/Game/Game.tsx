@@ -1,22 +1,19 @@
 import React, { useState } from "react";
 
-import { Cells, Turn } from "../../types/game";
+import { Moves, Turn } from "../../types/game";
 import GameContext from "../../contexts/game";
 
 import Mobile from "../Game/Mobile";
 import Desktop from "../Game/Desktop";
 
 const Game: React.FC = () => {
-  const [cells, setCells] = useState<Cells>(
-    [...Array(225)].map(() => {
-      return null;
-    })
-  );
-
+  const [moves, setMoves] = useState<Moves>({});
   const [turn, setTurn] = useState<Turn>("black");
 
+  const contextValue = { moves, setMoves, turn, setTurn };
+
   return (
-    <GameContext.Provider value={{ cells, setCells, turn, setTurn }}>
+    <GameContext.Provider value={contextValue}>
       <Mobile />
       <Desktop />
     </GameContext.Provider>

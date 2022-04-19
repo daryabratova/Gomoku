@@ -1,9 +1,9 @@
 import React from "react";
-import { Cells, Turn } from "../types/game";
+import { Moves, Turn } from "../types/game";
 
 const GameContext = React.createContext<{
-  cells: Cells;
-  setCells: (cells: Cells) => void;
+  moves: Moves;
+  setMoves: (moves: Moves) => void;
   turn: Turn;
   setTurn: (turn: Turn) => void;
 }>(null!);
