@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
-import Board from "../../Board";
-import GameContext from "../../../contexts/game";
-import * as Styles from "./Desktop.styles";
 
-const Desktop: React.FC = () => {
+import Board from "../Board";
+import GameContext from "../../contexts/game";
+
+import * as Styles from "./GameDesktop.styles";
+
+const GameDesktop: React.FC = () => {
   const { turn } = useContext(GameContext);
 
   return (
@@ -25,4 +27,4 @@ const Desktop: React.FC = () => {
   );
 };
 
-export default Desktop;
+export default GameDesktop;

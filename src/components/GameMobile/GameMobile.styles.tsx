@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-import { Turn as TurnType } from "../../../types/game";
+import { Turn as TurnType } from "../../types/game";
 
-import BlackStone from "../../../assets/black-stone.svg";
-import WhiteStone from "../../../assets/white-stone.svg";
-import UndoIcon from "../../../assets/undo.svg";
-import RestartIcon from "../../../assets/restart.svg";
+import BlackStone from "../../assets/black-stone.svg";
+import WhiteStone from "../../assets/white-stone.svg";
+import UndoIcon from "../../assets/undo.svg";
+import RestartIcon from "../../assets/restart.svg";
 
 export const Layout = styled.div`
   width: 100%;
@@ -96,6 +96,7 @@ export const Button = styled.button`
   height: 36px;
   padding-left: 22px;
   background-color: #5e5656;
+  background-size: 23px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
   font-weight: 300;
@@ -139,7 +140,7 @@ export const RestartButton = styled(Button)`
   padding-left: 30px;
   background-image: url(${RestartIcon});
   background-repeat: no-repeat;
-  background-position: 18px center;
+  background-position: 15px center;
 
   @media screen and (min-width: 700px) {
     padding-left: 63px;

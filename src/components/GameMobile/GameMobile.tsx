@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
-import Board from "../../Board";
-import GameContext from "../../../contexts/game";
-import * as Styles from "./Mobile.styles";
 
-const Mobile: React.FC = () => {
+import Board from "../Board";
+import GameContext from "../../contexts/game";
+
+import * as Styles from "./GameMobile.styles";
+
+const GameMobile: React.FC = () => {
   const { turn } = useContext(GameContext);
 
   return (
@@ -23,4 +25,4 @@ const Mobile: React.FC = () => {
   );
 };
 
-export default Mobile;
+export default GameMobile;

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-import { Turn as TurnType } from "../../../types/game";
+import { Turn as TurnType } from "../../types/game";
 
-import BlackStone from "../../../assets/black-stone.svg";
-import WhiteStone from "../../../assets/white-stone.svg";
-import UndoIcon from "../../../assets/undo.svg";
-import RestartIcon from "../../../assets/restart.svg";
+import BlackStone from "../../assets/black-stone.svg";
+import WhiteStone from "../../assets/white-stone.svg";
+import UndoIcon from "../../assets/undo.svg";
+import RestartIcon from "../../assets/restart.svg";
 
 export const Layout = styled.div`
   width: 100%;
