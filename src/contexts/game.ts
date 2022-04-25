@@ -2,10 +2,9 @@ import React from "react";
 import { Moves, Turn } from "../types/game";
 
 const GameContext = React.createContext<{
-  moves: Moves;
-  setMoves: (moves: Moves) => void;
+  lastSnapshot: Moves;
   turn: Turn;
-  setTurn: (turn: Turn) => void;
+  handleMove: (coordinates: string, turn: Turn) => void;
 }>(null!);
 
 export default GameContext;

@@ -1,16 +1,27 @@
 import React, { useState } from "react";
 
-import { Moves, Turn } from "../../types/game";
+import { History, Turn } from "../../types/game";
 import GameContext from "../../contexts/game";
 
 import Mobile from "../GameMobile";
 import Desktop from "../GameDesktop";
 
 const Game: React.FC = () => {
-  const [moves, setMoves] = useState<Moves>({});
-  const [turn, setTurn] = useState<Turn>("black");
+  const [history, setHistory] = useState<History>([]);
+  const lastSnapshot = history[history.length - 1] || {};
+  const turn: Turn = history.length % 2 ? "white" : "black";
 
-  const contextValue = { moves, setMoves, turn, setTurn };
+  const handleMove = (coordinates: string, turn: Turn) => {
+    setHistory([
+      ...history,
+      {
+        ...lastSnapshot,
+        [coordinates]: turn,
+      },
+    ]);
+  };
+
+  const contextValue = { lastSnapshot, turn, handleMove };
 
   return (
     <GameContext.Provider value={contextValue}>

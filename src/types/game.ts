@@ -1,6 +1,7 @@
 export type Moves = {
-  // key for coordinates can be any string
   [coordinates: string]: "black" | "white";
 };
+
+export type History = Moves[];
 
 export type Turn = "black" | "white";
