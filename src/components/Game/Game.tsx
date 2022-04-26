@@ -21,7 +21,21 @@ const Game: React.FC = () => {
     ]);
   };
 
-  const contextValue = { lastSnapshot, turn, handleMove };
+  const handleUndo = () => {
+    setHistory(history.slice(0, -1));
+  };
+
+  const handleRestart = () => {
+    setHistory([]);
+  };
+
+  const contextValue = {
+    lastSnapshot,
+    turn,
+    handleMove,
+    handleUndo,
+    handleRestart,
+  };
 
   return (
     <GameContext.Provider value={contextValue}>

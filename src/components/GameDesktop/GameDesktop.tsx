@@ -6,7 +6,7 @@ import GameContext from "../../contexts/game";
 import * as Styles from "./GameDesktop.styles";
 
 const GameDesktop: React.FC = () => {
-  const { turn } = useContext(GameContext);
+  const { turn, handleUndo, handleRestart } = useContext(GameContext);
 
   return (
     <Styles.Layout>
@@ -18,8 +18,10 @@ const GameDesktop: React.FC = () => {
             <Styles.Turn turn={turn}>Your turn</Styles.Turn>
           </Styles.Info>
           <Styles.BottomLine>
-            <Styles.UndoButton>Undo</Styles.UndoButton>
-            <Styles.RestartButton>Restart</Styles.RestartButton>
+            <Styles.UndoButton onClick={handleUndo}>Undo</Styles.UndoButton>
+            <Styles.RestartButton onClick={handleRestart}>
+              Restart
+            </Styles.RestartButton>
           </Styles.BottomLine>
         </Styles.RightSection>
       </Styles.Content>

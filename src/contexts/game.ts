@@ -5,6 +5,8 @@ const GameContext = React.createContext<{
   lastSnapshot: Moves;
   turn: Turn;
   handleMove: (coordinates: string, turn: Turn) => void;
+  handleUndo: () => void;
+  handleRestart: () => void;
 }>(null!);
 
 export default GameContext;
