@@ -7,10 +7,10 @@ const Intro: React.FC<{ onStart: () => void }> = ({ onStart }) => {
       <Styles.Title>Gomoku</Styles.Title>
       <Styles.Content>
         <Styles.Rules>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          The objective of the game is to form an unbroken chain of 5 stones
+          horizontally, vertically, or diagonally. To play your turn, place the
+          stone of your color on the intersection. Placing more than 5 stones
+          consecutively on the board does not result in a win.
         </Styles.Rules>
         <Styles.Button onClick={onStart}>Start</Styles.Button>
       </Styles.Content>
