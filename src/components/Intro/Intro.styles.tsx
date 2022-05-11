@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+import "@fontsource/nunito-sans";
+import "@fontsource/permanent-marker";
+
 export const Layout = styled.div`
   display: flex;
   flex-direction: column;
@@ -11,20 +14,15 @@ export const Layout = styled.div`
 `;
 
 export const Title = styled.h1`
-  margin-top: 48px;
-  font-weight: 900;
-  font-size: 48px;
+  margin-top: 60px;
+  font-family: "Permanent Marker";
+  font-size: 60px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
 
   @media screen and (min-width: 700px) {
-    margin-top: 120px;
-    font-size: 96px;
-  }
-
-  @media screen and (min-width: 1200px) {
     margin-top: 220px;
-    font-size: 64px;
+    font-size: 86px;
   }
 `;
 
@@ -47,14 +45,16 @@ export const Rules = styled.p`
   @media screen and (min-width: 700px) {
     margin-top: 150px;
     padding: 0 150px;
-    font-size: 28px;
-    line-height: 33px;
+    font-size: 30px;
+    line-height: 40px;
   }
 
   @media screen and (min-width: 1200px) {
     width: 520px;
-    margin: 80px auto 0;
     padding: 0 140px;
+    margin: 60px auto 0;
+    font-size: 22px;
+    line-height: 33px;
   }
 `;
 
@@ -64,14 +64,14 @@ export const Button = styled.button`
   margin-top: 30px;
   background-color: #ebdacb;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border: none;
+  border: 2px solid #ebdacb;
   border-radius: 50px;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
+  font-family: "Nunito Sans";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
   letter-spacing: 0.03em;
   color: #5e5656;
-  border: 2px solid #ebdacb;
   cursor: pointer;
 
   &:hover,
@@ -84,15 +84,16 @@ export const Button = styled.button`
     margin-top: 50px;
     width: 176px;
     height: 58px;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 28px;
+    line-height: 30px;
   }
 
   @media screen and (min-width: 1200px) {
-    margin-top: 35px;
-    width: 184px;
-    height: 60px;
-    font-size: 20px;
-    line-height: 23px;
+    width: 168px;
+    height: 56px;
+    margin-top: 30px;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 30px;
   }
 `;

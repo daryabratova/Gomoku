@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+import "@fontsource/nunito-sans";
+import "@fontsource/permanent-marker";
+
 import { Turn as TurnType } from "../../types/game";
 
 import BlackStone from "../../assets/black-stone.svg";
@@ -36,11 +39,11 @@ export const RightSection = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 439px;
-  height: 322px;
+  height: 300px;
 `;
 
 export const Title = styled.h1`
-  font-weight: 900;
+  font-family: "Permanent Marker";
   font-size: 64px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -53,22 +56,21 @@ export const Info = styled.div`
   justify-content: center;
   width: 100%;
   height: 66px;
-  border-top: 1px solid #303040;
-  border-bottom: 1px solid #303040;
+  border-top: 1px solid #5e5656;
+  border-bottom: 1px solid #5e5656;
 `;
 
 export const Turn = styled.span<{ turn: TurnType }>`
   display: inline-block;
   padding: 0 40px;
-  font-weight: 300;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 28px;
   letter-spacing: 0.03em;
   background-image: ${(props) =>
     props.turn === "black" ? `url(${BlackStone})` : `url(${WhiteStone})`};
   background-repeat: no-repeat;
   background-size: 28px;
-  color: #4b4444;
+  color: #5e5656;
 `;
 
 export const BottomLine = styled.div`
@@ -78,15 +80,15 @@ export const BottomLine = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 184px;
-  height: 60px;
-  padding-left: 76px;
+  width: 168px;
+  height: 56px;
   background-color: #5e5656;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
+  font-family: "Nunito Sans";
   font-weight: 300;
   font-size: 20px;
-  line-height: 23px;
+  line-height: 30px;
   letter-spacing: 0.03em;
   text-align: left;
   color: #ebdacb;
@@ -101,16 +103,18 @@ export const Button = styled.button`
 `;
 
 export const UndoButton = styled(Button)`
+  padding-left: 70px;
   margin-right: 29px;
   background-image: url(${UndoIcon});
   background-repeat: no-repeat;
-  background-size: 36px 26px;
-  background-position: 32px center;
+  background-size: 36px 22px;
+  background-position: 28px center;
 `;
 
 export const RestartButton = styled(Button)`
+  padding-left: 65px;
   background-image: url(${RestartIcon});
   background-repeat: no-repeat;
-  background-size: 39px;
-  background-position: 26px center;
+  background-size: 34px;
+  background-position: 22px center;
 `;

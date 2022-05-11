@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+import "@fontsource/nunito-sans";
+import "@fontsource/permanent-marker";
+
 import { Turn as TurnType } from "../../types/game";
 
 import BlackStone from "../../assets/black-stone.svg";
@@ -23,7 +26,7 @@ export const Title = styled.h1`
   top: 48px;
   left: 50%;
   transform: translate(-50%);
-  font-weight: 900;
+  font-family: "Permanent Marker";
   font-size: 48px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -99,6 +102,7 @@ export const Button = styled.button`
   background-size: 23px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
+  font-family: "Nunito Sans";
   font-weight: 300;
   font-size: 16px;
   line-height: 19px;
