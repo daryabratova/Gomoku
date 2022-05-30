@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import Board from "../../assets/board.svg";
 import BlackStoneIcon from "../../assets/black-stone.svg";
@@ -40,13 +40,26 @@ export const StoneWrapper = styled.button<{
   }
 `;
 
-export const BlackStone = styled.div`
+export const BlackStone = styled.div<{
+  shadow?: boolean;
+}>`
   width: 17px;
   height: 17px;
   background-image: url(${BlackStoneIcon});
   background-size: 17px;
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 50%;
+  ${(props) => {
+    if (props.shadow) {
+      return css`
+        box-shadow: #fff 0 0 4px, #fff 0 0 10px;
+        background-color: #fff;
+      `;
+    }
+
+    return null;
+  }}
 
   @media screen and (min-width: 700px) {
     width: 27px;

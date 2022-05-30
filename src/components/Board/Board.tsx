@@ -7,7 +7,8 @@ const range = (n: number) => {
 };
 
 const Board: React.FC = () => {
-  const { lastSnapshot, turn, handleMove } = useContext(GameContext);
+  const { lastSnapshot, turn, handleMove, checkWinning, win } =
+    useContext(GameContext);
 
   return (
     <Styles.BoardLayout>
@@ -22,12 +23,27 @@ const Board: React.FC = () => {
               return;
             }
 
+            if (win) {
+              return;
+            }
+
             handleMove(coordinates, turn);
+            checkWinning(x, y);
           };
 
           const getStone = () => {
             if (!move) {
               return null;
+            }
+
+            if (win) {
+              if (win.coordinates.includes(coordinates)) {
+                if (move === "black") {
+                  return <Styles.BlackStone shadow />;
+                }
+
+                return <Styles.WhiteStone shadow />;
+              }
             }
 
             if (move === "black") {

@@ -3,10 +3,8 @@ import styled from "styled-components";
 import "@fontsource/nunito-sans";
 import "@fontsource/permanent-marker";
 
-import { Turn as TurnType } from "../../types/game";
-
-import BlackStone from "../../assets/black-stone.svg";
-import WhiteStone from "../../assets/white-stone.svg";
+import BlackStoneIcon from "../../assets/black-stone.svg";
+import WhiteStoneIcon from "../../assets/white-stone.svg";
 import UndoIcon from "../../assets/undo.svg";
 import RestartIcon from "../../assets/restart.svg";
 
@@ -56,7 +54,7 @@ export const Content = styled.div`
   }
 `;
 
-export const TopLine = styled.div`
+export const Info = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,24 +64,38 @@ export const TopLine = styled.div`
   border-bottom: 1px solid #303040;
 `;
 
-export const Turn = styled.span<{ turn: TurnType }>`
+export const BlackStone = styled.div`
+  width: 17px;
+  height: 17px;
+  background-image: url(${BlackStoneIcon});
+  background-size: 17px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+
+  @media screen and (min-width: 700px) {
+    width: 27px;
+    height: 27px;
+    background-size: 27px;
+  }
+`;
+
+export const WhiteStone = styled(BlackStone)`
+  background-image: url(${WhiteStoneIcon});
+`;
+
+export const Turn = styled.span`
   display: inline-block;
-  padding-left: 20px;
-  font-weight: 300;
+  padding-left: 10px;
   font-size: 16px;
   line-height: 19px;
   letter-spacing: 0.03em;
-  background-image: ${(props) =>
-    props.turn === "black" ? `url(${BlackStone})` : `url(${WhiteStone})`};
-  background-repeat: no-repeat;
-  background-size: 18px;
-  color: #4b4444;
+  color: #5e5656;
 
   @media screen and (min-width: 700px) {
     padding-left: 35px;
     font-size: 28px;
     line-height: 28px;
-    background-size: 28px;
   }
 `;
 

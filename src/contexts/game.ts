@@ -1,12 +1,14 @@
 import React from "react";
-import { Moves, Turn } from "../types/game";
+import { Moves, Color } from "../types/game";
 
 const GameContext = React.createContext<{
   lastSnapshot: Moves;
-  turn: Turn;
-  handleMove: (coordinates: string, turn: Turn) => void;
+  turn: Color;
+  win: null | { color: Color; coordinates: string[] };
+  handleMove: (coordinates: string, turn: Color) => void;
   handleUndo: () => void;
   handleRestart: () => void;
+  checkWinning: (x: number, y: number) => void;
 }>(null!);
 
 export default GameContext;

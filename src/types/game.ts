@@ -4,4 +4,4 @@ export type Moves = {
 
 export type History = Moves[];
 
-export type Turn = "black" | "white";
+export type Color = "black" | "white";
