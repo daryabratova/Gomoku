@@ -11,10 +11,10 @@ const GameDesktop: React.FC = () => {
   const renderStone = () => {
     if (win) {
       if (win.color === "black") {
-        return <Styles.BlackStone />;
+        return <Styles.BlackStone glow />;
       }
 
-      return <Styles.WhiteStone />;
+      return <Styles.WhiteStone glow />;
     }
 
     if (turn === "black") {

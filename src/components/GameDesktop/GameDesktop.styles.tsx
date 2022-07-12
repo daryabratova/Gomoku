@@ -1,7 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-import "@fontsource/nunito-sans";
-import "@fontsource/permanent-marker";
+import * as theme from "../../data/theme";
 
 import BlackStoneIcon from "../../assets/black-stone.svg";
 import WhiteStoneIcon from "../../assets/white-stone.svg";
@@ -9,13 +8,14 @@ import UndoIcon from "../../assets/undo.svg";
 import RestartIcon from "../../assets/restart.svg";
 
 export const Layout = styled.div`
-  width: 100%;
-  height: 100vh;
-  padding: 0.1px;
-  background-color: #ebdacb;
+  display: none;
 
-  @media screen and (max-width: 1200px) {
-    display: none;
+  @media ${theme.devices.desktop} {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    padding: 0.1px;
+    background-color: ${theme.colors.almond};
   }
 `;
 
@@ -41,11 +41,11 @@ export const RightSection = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-family: "Permanent Marker";
+  font-family: ${theme.fonts.accent};
   font-size: 64px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  color: #5e5656;
+  color: ${theme.colors.zambezi};
 `;
 
 export const Info = styled.div`
@@ -54,21 +54,35 @@ export const Info = styled.div`
   justify-content: center;
   width: 100%;
   height: 66px;
-  border-top: 1px solid #5e5656;
-  border-bottom: 1px solid #5e5656;
+  border-top: 1px solid ${theme.colors.zambezi};
+  border-bottom: 1px solid ${theme.colors.zambezi};
 `;
 
-export const BlackStone = styled.div`
+export const Stone = styled.div<{ glow?: boolean }>`
   width: 27px;
   height: 27px;
-  background-image: url(${BlackStoneIcon});
   background-size: 27px;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%;
+  ${(props) => {
+    if (props.glow) {
+      return css`
+        box-shadow: ${theme.colors.white} 0 0 4px,
+          ${theme.colors.white} 0 0 10px;
+        background-color: ${theme.colors.white};
+      `;
+    }
+
+    return null;
+  }}
 `;
 
-export const WhiteStone = styled(BlackStone)`
+export const BlackStone = styled(Stone)`
+  background-image: url(${BlackStoneIcon});
+`;
+
+export const WhiteStone = styled(Stone)`
   background-image: url(${WhiteStoneIcon});
 `;
 
@@ -78,7 +92,7 @@ export const Turn = styled.span`
   font-size: 22px;
   line-height: 28px;
   letter-spacing: 0.03em;
-  color: #5e5656;
+  color: ${theme.colors.zambezi};
 `;
 
 export const BottomLine = styled.div`
@@ -90,23 +104,23 @@ export const BottomLine = styled.div`
 export const Button = styled.button`
   width: 168px;
   height: 56px;
-  background-color: #5e5656;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: ${theme.colors.zambezi};
+  box-shadow: 0px 4px 4px ${theme.colors.shadow};
   border-radius: 50px;
-  font-family: "Nunito Sans";
+  font-family: ${theme.fonts.primary};
   font-weight: 300;
   font-size: 20px;
   line-height: 30px;
   letter-spacing: 0.03em;
   text-align: left;
-  color: #ebdacb;
-  border: 2px solid #5e5656;
+  color: ${theme.colors.almond};
+  border: 2px solid ${theme.colors.zambezi};
   cursor: pointer;
 
   &:hover,
   &:focus,
   &:active {
-    border: 2px solid #ebdacb;
+    border: 2px solid ${theme.colors.almond};
   }
 `;
 

@@ -1,38 +1,46 @@
 import styled from "styled-components";
 
-import "@fontsource/nunito-sans";
-import "@fontsource/permanent-marker";
+import * as theme from "../../data/theme";
 
 export const Layout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100vh;
-  background-color: #5e5656;
-  color: #ebdacb;
+  background-color: ${theme.colors.zambezi};
+  color: ${theme.colors.almond};
 `;
 
 export const Title = styled.h1`
-  margin-top: 60px;
-  font-family: "Permanent Marker";
+  font-family: ${theme.fonts.accent};
   font-size: 60px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
 
-  @media screen and (min-width: 700px) {
-    margin-top: 220px;
+  @media ${theme.devices.tablet} {
+    font-size: 72px;
+  }
+
+  @media ${theme.devices.desktop} {
     font-size: 86px;
   }
 `;
 
 export const Content = styled.div`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 15%;
+
+  @media ${theme.devices.tablet} {
+    margin-top: 8%;
+  }
+
+  @media ${theme.devices.desktop} {
+    margin-top: 2%;
+  }
 `;
 
 export const Rules = styled.p`
@@ -42,17 +50,16 @@ export const Rules = styled.p`
   text-align: center;
   letter-spacing: 0.03em;
 
-  @media screen and (min-width: 700px) {
-    margin-top: 150px;
-    padding: 0 150px;
-    font-size: 30px;
+  @media ${theme.devices.tablet} {
+    padding: 0 125px;
+    font-size: 24px;
     line-height: 40px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media ${theme.devices.desktop} {
     width: 520px;
     padding: 0 140px;
-    margin: 60px auto 0;
+    margin: 0 auto;
     font-size: 22px;
     line-height: 33px;
   }
@@ -62,25 +69,25 @@ export const Button = styled.button`
   width: 114px;
   height: 36px;
   margin-top: 30px;
-  background-color: #ebdacb;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border: 2px solid #ebdacb;
+  background-color: ${theme.colors.almond};
+  box-shadow: 0px 4px 4px ${theme.colors.shadow};
+  border: 2px solid ${theme.colors.almond};
   border-radius: 50px;
-  font-family: "Nunito Sans";
+  font-family: ${theme.fonts.primary};
   font-weight: 600;
   font-size: 18px;
   line-height: 20px;
   letter-spacing: 0.03em;
-  color: #5e5656;
+  color: ${theme.colors.zambezi};
   cursor: pointer;
 
   &:hover,
   &:focus,
   &:active {
-    border: 2px solid #5e5656;
+    border: 2px solid ${theme.colors.zambezi};
   }
 
-  @media screen and (min-width: 700px) {
+  @media ${theme.devices.tablet} {
     margin-top: 50px;
     width: 176px;
     height: 58px;
@@ -88,7 +95,7 @@ export const Button = styled.button`
     line-height: 30px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media ${theme.devices.desktop} {
     width: 168px;
     height: 56px;
     margin-top: 30px;

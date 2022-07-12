@@ -39,10 +39,10 @@ const Board: React.FC = () => {
             if (win) {
               if (win.coordinates.includes(coordinates)) {
                 if (move === "black") {
-                  return <Styles.BlackStone shadow />;
+                  return <Styles.BlackStone glow />;
                 }
 
-                return <Styles.WhiteStone shadow />;
+                return <Styles.WhiteStone glow />;
               }
             }
 

@@ -1,7 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-import "@fontsource/nunito-sans";
-import "@fontsource/permanent-marker";
+import * as theme from "../../data/theme";
 
 import BlackStoneIcon from "../../assets/black-stone.svg";
 import WhiteStoneIcon from "../../assets/white-stone.svg";
@@ -9,46 +8,42 @@ import UndoIcon from "../../assets/undo.svg";
 import RestartIcon from "../../assets/restart.svg";
 
 export const Layout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100vh;
   padding: 0.1px;
-  background-color: #ebdacb;
+  background-color: ${theme.colors.almond};
 
-  @media screen and (min-width: 1200px) {
+  @media ${theme.devices.desktop} {
     display: none;
   }
 `;
 
 export const Title = styled.h1`
-  position: absolute;
-  top: 48px;
-  left: 50%;
-  transform: translate(-50%);
-  font-family: "Permanent Marker";
+  font-family: ${theme.fonts.accent};
   font-size: 48px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  color: #5e5656;
+  color: ${theme.colors.zambezi};
 
-  @media screen and (min-width: 700px) {
-    top: 120px;
-    font-size: 96px;
+  @media ${theme.devices.tablet} {
+    font-size: 72px;
   }
 `;
 
 export const Content = styled.div`
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -60%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 300px;
   height: 410px;
+  margin-top: 10%;
 
-  @media screen and (min-width: 700px) {
+  @media ${theme.devices.tablet} {
     width: 447px;
     height: 580px;
   }
@@ -60,27 +55,41 @@ export const Info = styled.div`
   justify-content: center;
   width: 100%;
   height: 40px;
-  border-top: 1px solid #303040;
-  border-bottom: 1px solid #303040;
+  border-top: 1px solid ${theme.colors.dark};
+  border-bottom: 1px solid ${theme.colors.dark};
 `;
 
-export const BlackStone = styled.div`
+export const Stone = styled.div<{ glow?: boolean }>`
   width: 17px;
   height: 17px;
-  background-image: url(${BlackStoneIcon});
   background-size: 17px;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%;
+  ${(props) => {
+    if (props.glow) {
+      return css`
+        box-shadow: ${theme.colors.white} 0 0 4px,
+          ${theme.colors.white} 0 0 10px;
+        background-color: ${theme.colors.white};
+      `;
+    }
 
-  @media screen and (min-width: 700px) {
+    return null;
+  }}
+
+  @media ${theme.devices.tablet} {
     width: 27px;
     height: 27px;
     background-size: 27px;
   }
 `;
 
-export const WhiteStone = styled(BlackStone)`
+export const BlackStone = styled(Stone)`
+  background-image: url(${BlackStoneIcon});
+`;
+
+export const WhiteStone = styled(Stone)`
   background-image: url(${WhiteStoneIcon});
 `;
 
@@ -90,12 +99,12 @@ export const Turn = styled.span`
   font-size: 16px;
   line-height: 19px;
   letter-spacing: 0.03em;
-  color: #5e5656;
+  color: ${theme.colors.zambezi};
 
-  @media screen and (min-width: 700px) {
-    padding-left: 35px;
-    font-size: 28px;
-    line-height: 28px;
+  @media ${theme.devices.tablet} {
+    padding-left: 15px;
+    font-size: 24px;
+    line-height: 36px;
   }
 `;
 
@@ -110,26 +119,26 @@ export const Button = styled.button`
   width: 114px;
   height: 36px;
   padding-left: 22px;
-  background-color: #5e5656;
-  background-size: 23px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: ${theme.colors.zambezi};
+  background-size: 20px;
+  box-shadow: 0px 4px 4px ${theme.colors.shadow};
+  border: 2px solid ${theme.colors.zambezi};
   border-radius: 50px;
-  font-family: "Nunito Sans";
+  font-family: ${theme.fonts.primary};
   font-weight: 300;
   font-size: 16px;
   line-height: 19px;
   letter-spacing: 0.03em;
-  color: #ebdacb;
-  border: 2px solid #5e5656;
+  color: ${theme.colors.almond};
   cursor: pointer;
 
   &:hover,
   &:focus,
   &:active {
-    border: 2px solid #ebdacb;
+    border: 2px solid ${theme.colors.almond};
   }
 
-  @media screen and (min-width: 700px) {
+  @media ${theme.devices.tablet} {
     width: 176px;
     height: 58px;
     padding-left: 66px;
@@ -145,7 +154,7 @@ export const UndoButton = styled(Button)`
   background-repeat: no-repeat;
   background-position: 18px center;
 
-  @media screen and (min-width: 700px) {
+  @media ${theme.devices.tablet} {
     margin-right: 46px;
     background-size: 30px 22px;
     background-position: 20px center;
@@ -158,7 +167,7 @@ export const RestartButton = styled(Button)`
   background-repeat: no-repeat;
   background-position: 15px center;
 
-  @media screen and (min-width: 700px) {
+  @media ${theme.devices.tablet} {
     padding-left: 63px;
     background-size: 30px 25px;
     background-position: 20px center;
