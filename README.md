@@ -10,11 +10,11 @@
 
 ## Demo
 
-Demo is available [here]().
+Demo is available [here](https://gomoku-ashy.vercel.app/).
 
 ## Features
 
-- Playing with stones and a board drawn by myself
+- Playing with stones and a board drawn by me
 - Canceling a move and restarting
 - Responsive layout (mobile, tablet, desktop)
 
