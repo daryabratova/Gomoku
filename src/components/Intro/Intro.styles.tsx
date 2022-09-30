@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import * as theme from "../../data/theme";
+import { theme } from "../../values/theme";
 
 export const Layout = styled.div`
   display: flex;

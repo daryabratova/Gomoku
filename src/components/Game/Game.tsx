@@ -1,120 +1,91 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
-import { History, Color } from "../../types/game";
-import GameContext from "../../contexts/game";
+import AppContext from "../../contexts/app";
 
-import Mobile from "../GameMobile";
-import Desktop from "../GameDesktop";
+import Intro from "../Intro";
+import Board from "../Board";
+
+import * as Styles from "./Game.styles";
 
 const Game: React.FC = () => {
-  const [history, setHistory] = useState<History>([]);
+  const { gameIsStarted, turn, handleUndo, handleRestart, win } =
+    useContext(AppContext);
 
-  const [win, setWin] = useState<null | {
-    color: Color;
-    coordinates: string[];
-  }>(null);
-
-  const lastSnapshot = history[history.length - 1] || {};
-  const turn: Color = history.length % 2 ? "white" : "black";
-
-  const checkWinning = (x: number, y: number) => {
-    const checkDirection = (
-      direction: "horizontal" | "vertical" | "diagonalUp" | "diagonalDown"
-    ) => {
-      const offsets = {
-        horizontal: [
-          { x: -1, y: 0 },
-          { x: 1, y: 0 },
-        ],
-        vertical: [
-          { x: 0, y: -1 },
-          { x: 0, y: 1 },
-        ],
-        diagonalUp: [
-          { x: 1, y: 1 },
-          { x: -1, y: -1 },
-        ],
-        diagonalDown: [
-          { x: -1, y: 1 },
-          { x: 1, y: -1 },
-        ],
-      };
-
-      let count = 1;
-
-      const coordinates = `${x}:${y}`;
-      let trace = [coordinates];
-
-      offsets[direction].forEach((offset) => {
-        let i = 1;
-
-        const computeCoordinates = () => {
-          return `${x + offset.x * i}:${y + offset.y * i}`;
-        };
-
-        while (lastSnapshot[computeCoordinates()] === turn) {
-          count += 1;
-          trace = [...trace, computeCoordinates()];
-
-          i += 1;
-        }
-      });
-
-      if (count === 5) {
-        return {
-          trace,
-        };
+  const renderTurn = () => {
+    if (win) {
+      if (win.color === "black") {
+        return <Styles.BlackStone glow />;
       }
 
-      return null;
-    };
-
-    const checkResult =
-      checkDirection("horizontal") ||
-      checkDirection("vertical") ||
-      checkDirection("diagonalUp") ||
-      checkDirection("diagonalDown");
-
-    if (checkResult) {
-      setWin({ color: turn, coordinates: checkResult.trace });
+      return <Styles.WhiteStone glow />;
     }
+
+    if (turn === "black") {
+      return <Styles.BlackStone />;
+    }
+
+    return <Styles.WhiteStone />;
   };
 
-  const handleMove = (coordinates: string, turn: Color) => {
-    setHistory([
-      ...history,
-      {
-        ...lastSnapshot,
-        [coordinates]: turn,
-      },
-    ]);
+  const renderMessage = () => {
+    if (win) {
+      return <Styles.Turn>You win!</Styles.Turn>;
+    }
+
+    return <Styles.Turn>Your turn</Styles.Turn>;
   };
 
-  const handleUndo = () => {
-    setHistory(history.slice(0, -1));
-    setWin(null);
+  const renderMobile = () => {
+    return (
+      <Styles.LayoutMobile>
+        <Styles.Title>Gomoku</Styles.Title>
+        <Styles.ContentMobile>
+          <Styles.Info>
+            {renderTurn()} {renderMessage()}
+          </Styles.Info>
+          <Board />
+          <Styles.BottomLine>
+            <Styles.UndoButton onClick={handleUndo}>Undo</Styles.UndoButton>
+            <Styles.RestartButton onClick={handleRestart}>
+              Restart
+            </Styles.RestartButton>
+          </Styles.BottomLine>
+        </Styles.ContentMobile>
+      </Styles.LayoutMobile>
+    );
   };
 
-  const handleRestart = () => {
-    setHistory([]);
-    setWin(null);
+  const renderDesktop = () => {
+    return (
+      <Styles.LayoutDesktop>
+        <Styles.ContentDesktop>
+          <Board />
+          <Styles.RightSection>
+            <Styles.Title>Gomoku</Styles.Title>
+            <Styles.Info>
+              {renderTurn()} {renderMessage()}
+            </Styles.Info>
+            <Styles.BottomLine>
+              <Styles.UndoButton onClick={handleUndo}>Undo</Styles.UndoButton>
+              <Styles.RestartButton onClick={handleRestart}>
+                Restart
+              </Styles.RestartButton>
+            </Styles.BottomLine>
+          </Styles.RightSection>
+        </Styles.ContentDesktop>
+      </Styles.LayoutDesktop>
+    );
   };
 
-  const contextValue = {
-    lastSnapshot,
-    turn,
-    handleMove,
-    handleUndo,
-    handleRestart,
-    win,
-    checkWinning,
-  };
+  if (!gameIsStarted) {
+    return <Intro />;
+  }
 
   return (
-    <GameContext.Provider value={contextValue}>
-      <Mobile />
-      <Desktop />
-    </GameContext.Provider>
+    <>
+      {renderMobile()}
+      {renderDesktop()}
+    </>
   );
 };
 

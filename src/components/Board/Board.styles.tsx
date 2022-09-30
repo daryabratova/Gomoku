@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
 
-import * as theme from "../../data/theme";
+import { theme } from "../../values/theme";
 
-import Board from "../../assets/board.svg";
-import BlackStoneIcon from "../../assets/black-stone.svg";
-import WhiteStoneIcon from "../../assets/white-stone.svg";
+import Board from "../../assets/images/board.svg";
+import BlackStoneIcon from "../../assets/images/stone-black.svg";
+import WhiteStoneIcon from "../../assets/images/stone-white.svg";
 
 export const BoardLayout = styled.div`
   display: grid;
@@ -26,7 +26,7 @@ export const BoardLayout = styled.div`
 `;
 
 export const StoneWrapper = styled.button<{
-  display: "black" | "white" | null;
+  occupied: boolean;
 }>`
   all: unset;
   display: flex;
@@ -34,7 +34,7 @@ export const StoneWrapper = styled.button<{
   justify-content: center;
   width: 18px;
   height: 18px;
-  cursor: ${(props) => (props.display ? "auto" : "pointer")};
+  cursor: ${(props) => (props.occupied ? "auto" : "pointer")};
 
   @media ${theme.devices.tablet}, ${theme.devices.desktop} {
     width: 28px;

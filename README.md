@@ -1,4 +1,4 @@
-# Gomoku <img src="/src/assets/white-stone.svg" alt="white-stone" width="28" align="center"/> <img src="/src/assets/black-stone.svg" alt="black-stone" width="28" align="center"/>
+# Gomoku <img src="/src/assets/images/stone-white.svg" alt="white-stone" width="28" align="center"/> <img src="/src/assets/images/stone-black.svg" alt="black-stone" width="28" align="center"/>
 
 ![Screenshot](/screenshot.png)
 

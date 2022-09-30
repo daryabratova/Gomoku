@@ -4,7 +4,7 @@ import reset from "styled-reset";
 import "@fontsource/nunito-sans";
 import "@fontsource/permanent-marker";
 
-import * as theme from "../../data/theme";
+import { theme } from "../../values/theme";
 
 // eslint-disable-next-line import/prefer-default-export
 export const Global = createGlobalStyle`

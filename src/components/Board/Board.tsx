@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import GameContext from "../../contexts/game";
+import AppContext from "../../contexts/app";
 import * as Styles from "./Board.styles";
 
 const range = (n: number) => {
@@ -7,8 +7,7 @@ const range = (n: number) => {
 };
 
 const Board: React.FC = () => {
-  const { lastSnapshot, turn, handleMove, checkWinning, win } =
-    useContext(GameContext);
+  const { moves, handleMove, win } = useContext(AppContext);
 
   return (
     <Styles.BoardLayout>
@@ -16,22 +15,13 @@ const Board: React.FC = () => {
         return range(15).map((x) => {
           const coordinates = [x, y].join(":");
 
-          const move = lastSnapshot[coordinates];
+          const move = moves[coordinates];
 
           const handleClick = () => {
-            if (move) {
-              return;
-            }
-
-            if (win) {
-              return;
-            }
-
-            handleMove(coordinates, turn);
-            checkWinning(x, y);
+            handleMove(x, y);
           };
 
-          const getStone = () => {
+          const renderStone = () => {
             if (!move) {
               return null;
             }
@@ -55,11 +45,11 @@ const Board: React.FC = () => {
 
           return (
             <Styles.StoneWrapper
-              display={move}
-              onClick={handleClick}
               key={coordinates}
+              occupied={Boolean(move)}
+              onClick={handleClick}
             >
-              {getStone()}
+              {renderStone()}
             </Styles.StoneWrapper>
           );
         });
