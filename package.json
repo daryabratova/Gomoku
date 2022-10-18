@@ -1,6 +1,7 @@
 {
   "name": "gomoku",
   "version": "0.1.0",
+  "homepage": "https://daryabratova.github.io/Gomoku/",
   "private": true,
   "dependencies": {
     "@fontsource/nunito-sans": "^4.5.6",
@@ -23,6 +24,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -45,7 +48,8 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.23"
+    "@types/styled-components": "^5.1.23",
+    "gh-pages": "^4.0.0"
   },
   "resolutions": {
     "styled-components": "^5"
