@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Gomoku/static/css/main.4115bd19.css",
+    "main.js": "/Gomoku/static/js/main.0136a4cb.js",
+    "static/media/nunito-sans-all-400-normal.woff": "/Gomoku/static/media/nunito-sans-all-400-normal.bd7d312f727f9d0100f8.woff",
+    "static/media/undo.svg": "/Gomoku/static/media/undo.4946bcb4b34fb6bdd6ed5606809d7380.svg",
+    "static/media/permanent-marker-all-400-normal.woff": "/Gomoku/static/media/permanent-marker-all-400-normal.bcbd26ccf4f356052820.woff",
+    "static/media/permanent-marker-latin-400-normal.woff2": "/Gomoku/static/media/permanent-marker-latin-400-normal.bd982c23c848c3486469.woff2",
+    "static/media/nunito-sans-latin-400-normal.woff2": "/Gomoku/static/media/nunito-sans-latin-400-normal.f7d96f81bd2867b84374.woff2",
+    "static/media/nunito-sans-latin-ext-400-normal.woff2": "/Gomoku/static/media/nunito-sans-latin-ext-400-normal.b213c2e36214a6c2d264.woff2",
+    "static/media/nunito-sans-cyrillic-ext-400-normal.woff2": "/Gomoku/static/media/nunito-sans-cyrillic-ext-400-normal.8243dd27f658b7cbc6f2.woff2",
+    "static/media/restart.svg": "/Gomoku/static/media/restart.cfd1bbac87dc6bac53fffc61fc0a22fe.svg",
+    "static/media/nunito-sans-cyrillic-400-normal.woff2": "/Gomoku/static/media/nunito-sans-cyrillic-400-normal.7cce662ac2adea12f073.woff2",
+    "static/media/nunito-sans-vietnamese-400-normal.woff2": "/Gomoku/static/media/nunito-sans-vietnamese-400-normal.a6463973266783944f68.woff2",
+    "static/media/stone-white.svg": "/Gomoku/static/media/stone-white.2cf613c5654a697ab10b4da146aa39c7.svg",
+    "static/media/stone-black.svg": "/Gomoku/static/media/stone-black.bad6af197c4b0437bc9954dc45192267.svg",
+    "static/media/board.svg": "/Gomoku/static/media/board.085d4086ced8ed0ec9de44c51171a6ec.svg",
+    "index.html": "/Gomoku/index.html",
+    "main.4115bd19.css.map": "/Gomoku/static/css/main.4115bd19.css.map",
+    "main.0136a4cb.js.map": "/Gomoku/static/js/main.0136a4cb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4115bd19.css",
+    "static/js/main.0136a4cb.js"
+  ]
+}
