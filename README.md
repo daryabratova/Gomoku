@@ -10,7 +10,7 @@
 
 ## Demo
 
-Demo is available [here](https://gomoku-ashy.vercel.app/).
+Demo is available [here](https://daryabratova.github.io/Gomoku/).
 
 ## Features
 
