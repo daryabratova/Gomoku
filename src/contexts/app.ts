@@ -1,8 +1,9 @@
 import React from "react";
 import { Moves, Color } from "../types/game";
 
+//NOTE - general app context, equals null only on initialization
 const AppContext = React.createContext<{
-  gameIsStarted: boolean,
+  gameIsStarted: boolean;
   startGame: () => void;
   moves: Moves;
   turn: Color;

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import AppContext from "../../contexts/app";
 import * as Styles from "./Board.styles";
 
+//NOTE - create an array with numbers from 0 to (passed number - 1)
 const range = (n: number) => {
   return [...Array(n)].map((_, i) => i);
 };
@@ -11,8 +12,10 @@ const Board: React.FC = () => {
 
   return (
     <Styles.BoardLayout>
+      {/* NOTE - map through array from 0 to 14 and through inner array from 0 to 14 */}
       {range(15).map((y) => {
         return range(15).map((x) => {
+          //NOTE - coordinates will look like "3:12" for example
           const coordinates = [x, y].join(":");
 
           const move = moves[coordinates];
@@ -26,6 +29,7 @@ const Board: React.FC = () => {
               return null;
             }
 
+            //NOTE - check if a stone is inside winning row and render it with glow
             if (win) {
               if (win.coordinates.includes(coordinates)) {
                 if (move === "black") {

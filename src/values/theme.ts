@@ -1,3 +1,4 @@
+//NOTE - theme object that is used to style elements
 export const theme = {
   devices: {
     tablet: `screen and (orientation: portrait) and (min-width: 768px)`,

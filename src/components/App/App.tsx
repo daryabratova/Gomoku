@@ -9,6 +9,7 @@ import * as Styles from "./App.styles";
 
 const App: React.FC = () => {
   const [gameIsStarted, setGameIsStarted] = useState(false);
+  //NOTE - history contains of objects that are snapshots of game on every move
   const [history, setHistory] = useState<History>([]);
 
   const [win, setWin] = useState<null | {
@@ -24,10 +25,12 @@ const App: React.FC = () => {
 
     const move = moves[coordinates];
 
+    //NOTE - if cell is already taken - nothing happens
     if (move) {
       return;
     }
 
+    //NOTE - if someone has won - nothing happens
     if (win) {
       return;
     }
@@ -43,6 +46,7 @@ const App: React.FC = () => {
     const checkDirection = (
       direction: "horizontal" | "vertical" | "diagonalUp" | "diagonalDown"
     ) => {
+      //NOTE - instructions on how to move through board to check winning in every direction
       const offsets = {
         horizontal: [
           { x: -1, y: 0 },
@@ -62,13 +66,16 @@ const App: React.FC = () => {
         ],
       };
 
+      //NOTE - initial number of winning stones(cells)
       let count = 1;
 
+      //NOTE - list of winning coordinates
       let trace = [coordinates];
 
       offsets[direction].forEach((offset) => {
         let i = 1;
 
+        //NOTE - expression for taking next coordinates
         const computeCoordinates = () => {
           return `${x + offset.x * i}:${y + offset.y * i}`;
         };
@@ -81,6 +88,7 @@ const App: React.FC = () => {
         }
       });
 
+      //NOTE - winning condition - to have 5 stones in one direction
       if (count === 5) {
         return {
           trace,
@@ -96,6 +104,7 @@ const App: React.FC = () => {
       checkDirection("diagonalUp") ||
       checkDirection("diagonalDown");
 
+    //NOTE - at least one direction returns true - win
     if (checkResult) {
       setWin({ color: turn, coordinates: checkResult.trace });
     }
